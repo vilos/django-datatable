@@ -26,11 +26,11 @@ class JSONResponseMixin(object):
             **response_kwargs
         )
 
-    def convert_context_to_json(self, context):
+    def convert_context_to_json(self, context, **kwargs):
         """
         Convert the context dictionary into a JSON object.
         """
-        return json.dumps(context, cls=DjangoJSONEncoder)
+        return json.dumps(context, cls=DjangoJSONEncoder, **kwargs)
 
 
 class FeedDataView(JSONResponseMixin, BaseListView):
